@@ -14,9 +14,10 @@ importers:
       vue:
         specifier: ^3.4.27
         version: 3.4.38(typescript@5.5.4)
-      vue-router:
-        specifier: ^4.4.3
-        version: 4.4.3(vue@3.4.38(typescript@5.5.4))
+
+  packages/password: {}
+
+  packages/switch:
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
@@ -36,10 +37,6 @@ importers:
       vue-tsc:
         specifier: ^2.0.19
         version: 2.1.2(typescript@5.5.4)
-
-  packages/password: {}
-
-  packages/switch: {}
 
 packages:
 
@@ -707,9 +704,6 @@ packages:
   '@vue/compiler-vue2@2.7.16':
     resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
 
-  '@vue/devtools-api@6.6.3':
-    resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
-
   '@vue/language-core@2.1.2':
     resolution: {integrity: sha512-tt2J7C+l0J/T5PaLhJ0jvCCi0JNwu3e8azWTYxW3jmAW5B/dac0g5UxmI7l59CQgCGFotqUqI3tXjfZgoWNtog==}
     peerDependencies:
@@ -1360,11 +1354,6 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
-
-  vue-router@4.4.3:
-    resolution: {integrity: sha512-sv6wmNKx2j3aqJQDMxLFzs/u/mjA9Z5LCgy6BE0f7yFWMjrPLnS/sPNn8ARY/FXw6byV18EFutn5lTO6+UsV5A==}
-    peerDependencies:
-      vue: ^3.2.0
 
   vue-tsc@2.1.2:
     resolution: {integrity: sha512-PH1BDxWT3eaPhl73elyZj6DV0nR3K4IFoUM1sGzMXXQneovVUwHQytdSyAHiED5MtEINGSHpL/Hs9ch+c/tDTw==}
@@ -2047,8 +2036,6 @@ snapshots:
       de-indent: 1.0.2
       he: 1.2.0
 
-  '@vue/devtools-api@6.6.3': {}
-
   '@vue/language-core@2.1.2(typescript@5.5.4)':
     dependencies:
       '@volar/language-core': 2.4.1
@@ -2149,9 +2136,9 @@ snapshots:
     dependencies:
       run-applescript: 5.0.0
 
-  bundle-require@5.0.0(esbuild@0.21.5):
+  bundle-require@5.0.0(esbuild@0.23.1):
     dependencies:
-      esbuild: 0.21.5
+      esbuild: 0.23.1
       load-tsconfig: 0.2.5
 
   cac@6.7.14: {}
@@ -2384,9 +2371,9 @@ snapshots:
 
   importx@0.4.4:
     dependencies:
-      bundle-require: 5.0.0(esbuild@0.21.5)
+      bundle-require: 5.0.0(esbuild@0.23.1)
       debug: 4.3.6
-      esbuild: 0.21.5
+      esbuild: 0.23.1
       jiti: 2.0.0-beta.3
       jiti-v1: jiti@1.21.6
       pathe: 1.1.2
@@ -2706,11 +2693,6 @@ snapshots:
 
   vue-demi@0.14.10(vue@3.4.38(typescript@5.5.4)):
     dependencies:
-      vue: 3.4.38(typescript@5.5.4)
-
-  vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)):
-    dependencies:
-      '@vue/devtools-api': 6.6.3
       vue: 3.4.38(typescript@5.5.4)
 
   vue-tsc@2.1.2(typescript@5.5.4):

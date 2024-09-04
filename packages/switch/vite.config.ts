@@ -27,12 +27,4 @@ export default defineConfig({
     }),
     
   ],
-  // build: {
-  //   rollupOptions: {
-  //     input: {
-  //       main: 'src/main.ts',
-  //       settings: 'src/settings.ts',
-  //     }
-  //   }
-  // }
 });

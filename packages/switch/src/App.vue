@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import Home from './Home.vue'
+</script>
+
 <template>
-  <RouterView />
+  <Home />
 </template>
