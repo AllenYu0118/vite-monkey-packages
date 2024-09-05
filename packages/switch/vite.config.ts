@@ -11,12 +11,9 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        icon: 'https://vitejs.dev/logo.svg',
+        icon: '',
         namespace: 'npm/vite-plugin-monkey',
         include: ['*'],
-        resource: {
-          setttings: '//127.0.0.1:5173/settings',
-        }
       },
       build: {
         externalGlobals: {
