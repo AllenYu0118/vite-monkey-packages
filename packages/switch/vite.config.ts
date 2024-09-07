@@ -13,6 +13,9 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         version: pkg.version,
+        license: 'MIT',
+        description: pkg.description,
+        author: pkg.author,
         namespace: 'allen/allen-env-switch',
         include: ['*'],
       },

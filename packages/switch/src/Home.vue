@@ -4,8 +4,15 @@ import type { SwitchProps } from './types'
 import Settings from './Settings.vue'
 import { GM_getValue, GM_log, GM_registerMenuCommand, unsafeWindow } from '$'
 
-const domain = ref(GM_getValue('domain', ''))
-const configs = ref<SwitchProps[]>(JSON.parse(GM_getValue('configs', '')) || [])
+const gm_domain = GM_getValue('domain', '')
+const gm_configs = GM_getValue('configs', '')
+
+if (!gm_configs) {
+  GM_log('Please set the configuration first')
+}
+
+const domain = ref(gm_domain)
+const configs = ref<SwitchProps[]>(JSON.parse(gm_configs) || [])
 
 const url = ref('')
 const _window = unsafeWindow as Window

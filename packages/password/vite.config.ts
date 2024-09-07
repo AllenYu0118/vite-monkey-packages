@@ -11,6 +11,9 @@ export default defineConfig({
       entry: 'src/index.ts',
       userscript: {
         version: pkg.version,
+        license: 'MIT',
+        description: pkg.description,
+        author: pkg.author,
         namespace: '@allen/vite-monkey-password',
         include: ['*'],
       },
