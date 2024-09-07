@@ -9,9 +9,9 @@
     "build:password": "pnpm --filter=./packages/password build",
     "dev:switch": "pnpm --filter=./packages/switch dev",
     "build:switch": "pnpm --filter=./packages/switch build",
-    "build": "pnpm '/^build:.*/'",
+    "build": "pnpm build:password && pnpm build:switch",
     "bump": "bumpp packages/**/package.json -r --commit 'The v%s release' --tag --push",
-    "publish": "pnpm publish --filter=vite-monkey-*/** -r --no-git-checks",
+    "publish": "pnpm publish -r --no-git-checks",
     "release": "pnpm build && pnpm bump && pnpm publish",
     "preview": "vite preview"
   },
