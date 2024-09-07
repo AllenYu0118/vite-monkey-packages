@@ -12,7 +12,7 @@ if (!gm_configs) {
 }
 
 const domain = ref(gm_domain)
-const configs = ref<SwitchProps[]>(JSON.parse(gm_configs) || [])
+const configs = ref<SwitchProps[]>(gm_configs ? JSON.parse(gm_configs) : [])
 
 const url = ref('')
 const _window = unsafeWindow as Window
