@@ -1,33 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { SwitchProps } from './types'
-import { GM_log, GM_registerMenuCommand, unsafeWindow } from '$'
+import Settings from './Settings.vue'
+import { GM_getValue, GM_log, GM_registerMenuCommand, unsafeWindow } from '$'
 
-const visible = ref(false)
-GM_registerMenuCommand('Settings', () => {
-  visible.value = true
-})
+const domain = ref(GM_getValue('domain', ''))
+const configs = ref<SwitchProps[]>(JSON.parse(GM_getValue('configs', '')) || [])
 
-const domain = '.591.com.tw'
 const url = ref('')
 const _window = unsafeWindow as Window
-const configs = ref<SwitchProps[]>([
-  { action: 'dev', subdomain: 'rent', prefix: 'house-', env: '.dev', port: 3003 },
-  { action: 'debug', subdomain: 'rent', env: '.debug', port: 0 },
-  { action: 'online', subdomain: 'rent', env: '', port: 0 },
-
-  { action: 'dev', subdomain: 'sale', prefix: 'house-', env: '.dev', port: 3003 },
-  { action: 'debug', subdomain: 'sale', env: '.debug', port: 0 },
-  { action: 'online', subdomain: 'sale', env: '', port: 0 },
-
-  { action: 'dev', subdomain: 'busines', prefix: 'house-', env: '.dev', port: 3003 },
-  { action: 'debug', subdomain: 'busines', env: '.debug', port: 0 },
-  { action: 'online', subdomain: 'busines', env: '', port: 0 },
-
-  { action: 'dev', subdomain: 'land', env: '.dev', port: 3003 },
-  { action: 'debug', subdomain: 'land', env: '.debug', port: 0 },
-  { action: 'online', subdomain: 'land', env: '', port: 0 },
-])
 
 function shortcut(code = 'Digit1', callback: () => void) {
   document.addEventListener('keydown', (event) => {
@@ -71,13 +52,13 @@ function handle(action: Action) {
   const _prefix = item?.prefix ? item.prefix : ''
 
   if (item) {
-    url.value = `${_protocol}//${_prefix}${item.subdomain}${item.env}${domain}${_port}${pathname}${search}`
+    url.value = `${_protocol}//${_prefix}${item.subdomain}${item.env}${domain.value}${_port}${pathname}${search}`
   }
-  else if (hostname.includes(domain)) {
+  else if (hostname.includes(domain.value)) {
     const _env = envMap[action]
     const _subdomain = hostname.split('.')[0]
 
-    url.value = `https://${_subdomain}${_env}${domain}${pathname}${search}`
+    url.value = `https://${_subdomain}${_env}${domain.value}${pathname}${search}`
   }
 
   if (url.value) {
@@ -92,32 +73,36 @@ function handle(action: Action) {
     GM_log('No configuration found')
   }
 }
+
+const visible = ref(false)
+
+GM_registerMenuCommand('Settings', () => {
+  visible.value = true
+})
 </script>
 
 <template>
-  <section v-if="url" class="w-full h-full bg-green progress hue">
+  <section
+    v-if="url"
+    class="
+      grid place-items-center
+      w-full text-center
+      fixed top-0 left-0 z-9999
+      text-16px h-60px leading-24px text-#fff
+      md:h-45px md:leading-45px md:text-22px
+      hue
+    "
+  >
     <div>Switch: {{ url }}</div>
   </section>
+
+  <Settings v-if="visible" @close="visible = false" />
 </template>
 
 <style scoped lang="scss">
-.progress {
-  display: grid;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 45px;
-  background-color: #f56c6c;
-  z-index: 9999;
-  color: #fff;
-  font-size: 22px;
-  place-content: center;
-}
-
 .hue {
   background:
-    linear-gradient(45deg,0% #5fddcc, 50% #ff004d,);
+    linear-gradient(45deg, #5fddcc, #ff004d);
   animation: hueRotate 2s infinite alternate;
 }
 
