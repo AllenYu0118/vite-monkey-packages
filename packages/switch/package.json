@@ -3,6 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "description": "Switch Web Environment",
+  "author": "yulei@addcn.com",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",

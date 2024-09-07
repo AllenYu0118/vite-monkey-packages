@@ -11,7 +11,6 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        icon: '',
         namespace: 'npm/vite-plugin-monkey',
         include: ['*'],
       },

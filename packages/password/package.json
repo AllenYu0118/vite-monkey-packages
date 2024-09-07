@@ -1,8 +1,10 @@
 {
   "name": "vite-monkey-password",
-  "private": true,
-  "version": "0.0.1",
   "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Show password",
+  "author": "yulei@addcn.com",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
