@@ -14,7 +14,7 @@ export default defineConfig({
         include: ['*'],
       },
       build: {
-        fileName: 'vite-monkey-password.js',
+        fileName: 'allen-show-password.user.js',
         externalGlobals: {
           vue: cdn.jsdelivr('Vue', 'dist/vue.global.prod.js'),
         },
